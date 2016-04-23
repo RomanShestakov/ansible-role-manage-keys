@@ -1,9 +1,9 @@
 # tasks/main.yml
 
-- name: Keys: Create dir /root/.ssh
+- name: Keys | Create dir /root/.ssh
   file: path=/root/.ssh state=directory mode=0755
 
-- name: Keys: Ensure github.com is a known host
+- name: Keys | Ensure github.com is a known host
   lineinfile:
     dest: /root/.ssh/known_hosts
     create: yes
@@ -11,11 +11,11 @@
     line: "{{ lookup('pipe', 'ssh-keyscan -t rsa github.com') }}"
     regexp: "^github\\.com"
 
-- name: Keys: Load secret keys
+- name: Keys | Load secret keys
   include_vars: {{ key_file }}
   no_log: true
 
-- name: Copy secret keys
+- name: Keys | Copy secret keys
   copy:
     dest="{{ item.key }}"
     content="{{ item.value.content }}"
