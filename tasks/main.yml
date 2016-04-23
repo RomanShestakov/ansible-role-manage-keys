@@ -12,7 +12,7 @@
     regexp: "^github\\.com"
 
 - name: Keys | Load secret keys
-  include_vars: {{ key_file }}
+  include_vars: "{{ key_file }}"
   no_log: true
 
 - name: Keys | Copy secret keys
