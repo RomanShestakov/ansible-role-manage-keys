@@ -1,0 +1,3 @@
+# defaults/main.yml
+
+key_file: "vars/magma_key.yml"
