@@ -25,5 +25,5 @@
     owner="{{ item.value.owner }}"
     group="{{ item.value.group }}"
     mode="{{ item.value.mode }}"
-  with_dict="{{ private_ssl_key }}"
+  with_dict: "{{ private_ssl_key }}"
   no_log: true
